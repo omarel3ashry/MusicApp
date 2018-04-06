@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding">30dp</dimen>
+    <dimen name="songs_padding">10dp</dimen>
+    <dimen name="shapes_h">100dp</dimen>
+    <dimen name="txt_s">30sp</dimen>
+</resources>
