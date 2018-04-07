@@ -9,9 +9,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="350dp"
+        android:contentDescription="@string/songart"
         android:padding="@dimen/padding"
-        android:src="@drawable/songart"
-        android:contentDescription="@string/songart" />
+        android:src="@drawable/songart" />
 
     <TextView
         android:id="@+id/playing_now"
@@ -48,5 +48,4 @@
             android:layout_weight="1"
             android:contentDescription="@string/nextsong" />
     </LinearLayout>
-
 </LinearLayout>

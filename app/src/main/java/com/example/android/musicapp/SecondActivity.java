@@ -3,6 +3,7 @@ package com.example.android.musicapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,6 +28,8 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         artistName = findViewById(R.id.artistName);
         playList = findViewById(R.id.list2);
+
+
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
         store = bundle.getInt("ArtistName");
@@ -154,6 +157,7 @@ public class SecondActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
 }

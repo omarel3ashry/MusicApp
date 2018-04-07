@@ -1,15 +1,15 @@
 package com.example.android.musicapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.ArrayAdapter;
-import android.widget.AdapterView.OnItemClickListener;
 
 import java.util.ArrayList;
 
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView next;
     boolean swap = false;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         artistList.add(new Artist("Tamer Ashour",R.drawable.ic_library_music_black_24dp));
         ArtistAdapter artistAdapter = new ArtistAdapter(this, artistList);
         listView = findViewById(R.id.list);
+
         listView.setAdapter(artistAdapter);
         listView.setOnItemClickListener(new OnItemClickListener() {
             @Override
