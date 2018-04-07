@@ -4,4 +4,5 @@
     <dimen name="songs_padding">10dp</dimen>
     <dimen name="shapes_h">100dp</dimen>
     <dimen name="txt_s">30sp</dimen>
+    <dimen name="small_shapes_h">70dp</dimen>
 </resources>

@@ -30,16 +30,16 @@ public class SongActivity extends AppCompatActivity {
         prev.setImageResource(R.drawable.ic_skip_previous_black_24dp);
         next.setImageResource(R.drawable.ic_skip_next_black_24dp);
         playAndpause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (swap) {
-                    playAndpause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
-                    swap = false;
-                } else {
-                    playAndpause.setImageResource(R.drawable.ic_pause_circle_filled_black_24dp);
-                    swap = true;
-                }
+        @Override
+        public void onClick(View v) {
+            if (swap) {
+                playAndpause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
+                swap = false;
+            } else {
+                playAndpause.setImageResource(R.drawable.ic_pause_circle_filled_black_24dp);
+                swap = true;
             }
-        });
-    }
+        }
+    });
+}
 }

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView.OnItemClickListener;
@@ -15,6 +16,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayList<Artist> artistList;
     ListView listView;
+    ImageView playAndpause;
+    ImageView prev;
+    ImageView next;
+    boolean swap = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,24 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtra("ArtistName", position1);
                 startActivity(intent);
+            }
+        });
+        prev = findViewById(R.id.prev1);
+        next = findViewById(R.id.next1);
+        playAndpause = findViewById(R.id.playAndpause1);
+        playAndpause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
+        prev.setImageResource(R.drawable.ic_skip_previous_black_24dp);
+        next.setImageResource(R.drawable.ic_skip_next_black_24dp);
+        playAndpause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (swap) {
+                    playAndpause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
+                    swap = false;
+                } else {
+                    playAndpause.setImageResource(R.drawable.ic_pause_circle_filled_black_24dp);
+                    swap = true;
+                }
             }
         });
 

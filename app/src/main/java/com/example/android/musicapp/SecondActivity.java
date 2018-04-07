@@ -14,18 +14,21 @@ import java.util.ArrayList;
 
 public class SecondActivity extends AppCompatActivity {
     TextView artistName;
-    ImageView artistPic;
     ListView playList;
+    ImageView playAndpause;
+    ImageView prev;
+    ImageView next;
     int store;
+    boolean swap = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         artistName = findViewById(R.id.artistName);
-        artistPic = findViewById(R.id.artistImg);
         playList = findViewById(R.id.list2);
         Bundle bundle = getIntent().getExtras();
+        assert bundle != null;
         store = bundle.getInt("ArtistName");
         ArrayList<String> angham = new ArrayList<>();
         angham.add("Ahe Gat");
@@ -131,6 +134,24 @@ public class SecondActivity extends AppCompatActivity {
                 Intent info = new Intent(SecondActivity.this, SongActivity.class);
                 info.putExtra("songName", playList.getItemAtPosition(position2).toString());
                 startActivity(info);
+            }
+        });
+        prev = findViewById(R.id.prev2);
+        next = findViewById(R.id.next2);
+        playAndpause = findViewById(R.id.playAndpause2);
+        playAndpause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
+        prev.setImageResource(R.drawable.ic_skip_previous_black_24dp);
+        next.setImageResource(R.drawable.ic_skip_next_black_24dp);
+        playAndpause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (swap) {
+                    playAndpause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
+                    swap = false;
+                } else {
+                    playAndpause.setImageResource(R.drawable.ic_pause_circle_filled_black_24dp);
+                    swap = true;
+                }
             }
         });
     }
