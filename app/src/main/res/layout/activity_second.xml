@@ -4,7 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+<Button
+    android:layout_width="@dimen/btn"
+    android:layout_height="@dimen/btn"
+    android:layout_margin="@dimen/btn_margin"
+    android:background="@drawable/home"
+    android:id="@+id/home_redirect"/>
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/list2"
@@ -21,24 +26,27 @@
 
         <ImageView
             android:id="@+id/prev2"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/small_shapes_h"
             android:layout_height="@dimen/small_shapes_h"
             android:layout_weight="1"
+            android:src="@drawable/prev"
             android:contentDescription="@string/prevsong"
             />
 
         <ImageView
             android:id="@+id/playAndpause2"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/small_shapes_h"
             android:layout_height="@dimen/small_shapes_h"
+            android:src="@drawable/play"
             android:layout_weight="1"
             android:contentDescription="@string/stop_and_play"
             />
 
         <ImageView
             android:id="@+id/next2"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/small_shapes_h"
             android:layout_height="@dimen/small_shapes_h"
+            android:src="@drawable/next"
             android:layout_weight="1"
             android:contentDescription="@string/nextsong" />
     </LinearLayout>

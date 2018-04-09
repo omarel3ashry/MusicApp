@@ -1,45 +1,31 @@
 package com.example.android.musicapp;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class SongActivity extends AppCompatActivity {
-    TextView songName;
-    ImageView playAndpause;
-    ImageView prev;
-    ImageView next;
-    boolean swap = false;
+    ImageView playAndpause3;
+    Button redirectBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song);
-
-        songName = findViewById(R.id.playing_now);
-        Bundle bundleSongName = getIntent().getExtras();
-        Bundle bundleIndex = getIntent().getExtras();
-        assert bundleSongName != null;
-        songName.setText(bundleSongName.getString("songName"));
-        playAndpause = findViewById(R.id.playAndpause);
-        prev = findViewById(R.id.prev);
-        next = findViewById(R.id.next);
-        playAndpause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
-        prev.setImageResource(R.drawable.ic_skip_previous_black_24dp);
-        next.setImageResource(R.drawable.ic_skip_next_black_24dp);
-        playAndpause.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (swap) {
-                playAndpause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
-                swap = false;
-            } else {
-                playAndpause.setImageResource(R.drawable.ic_pause_circle_filled_black_24dp);
-                swap = true;
+        redirectBtn = findViewById(R.id.redirect);
+        redirectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent list=new Intent(SongActivity.this,SecondActivity.class);
+                startActivity(list);
             }
-        }
-    });
-}
-}
+        });
+
+        playAndpause3 = findViewById(R.id.playAndpause3);
+        MainActivity child2=new MainActivity();
+        child2.playandpause(playAndpause3);
+
+    }}

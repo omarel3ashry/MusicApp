@@ -21,23 +21,26 @@
 
         <ImageView
             android:id="@+id/prev1"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/small_shapes_h"
             android:layout_height="@dimen/small_shapes_h"
             android:layout_weight="1"
+            android:src="@drawable/prev"
             android:contentDescription="@string/prevsong" />
 
         <ImageView
             android:id="@+id/playAndpause1"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/small_shapes_h"
             android:layout_height="@dimen/small_shapes_h"
             android:layout_weight="1"
+            android:src="@drawable/play"
             android:contentDescription="@string/stop_and_play" />
 
         <ImageView
             android:id="@+id/next1"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/small_shapes_h"
             android:layout_height="@dimen/small_shapes_h"
             android:layout_weight="1"
+            android:src="@drawable/next"
             android:contentDescription="@string/nextsong" />
     </LinearLayout>
 </LinearLayout>

@@ -7,4 +7,5 @@
     <string name="stop_and_play">stop and play</string>
     <string name="nextsong">nextSong</string>
     <string name="songart">songArt</string>
+    <string name="song">Song Name</string>
 </resources>

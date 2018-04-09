@@ -3,10 +3,9 @@ package com.example.android.musicapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,11 +15,9 @@ import java.util.ArrayList;
 public class SecondActivity extends AppCompatActivity {
     TextView artistName;
     ListView playList;
-    ImageView playAndpause;
-    ImageView prev;
-    ImageView next;
+    ImageView playAndpause2;
+    Button homeRedirect;
     int store;
-    boolean swap = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,136 +25,129 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         artistName = findViewById(R.id.artistName);
         playList = findViewById(R.id.list2);
-
-
-        Bundle bundle = getIntent().getExtras();
-        assert bundle != null;
-        store = bundle.getInt("ArtistName");
-        ArrayList<String> angham = new ArrayList<>();
-        angham.add("Ahe Gat");
-        angham.add("Etgah Wa7ed");
-        angham.add("Ben Elbnen");
-        angham.add("Tool Manta B3ed");
-        angham.add("Aktblk Ta3hod");
-        angham.add("Heta Na2sa");
-        angham.add("Ahlam Bare2a");
-        angham.add("Fengan_Elnsyan");
-        angham.add("Bakrah Elmosika");
-        angham.add("Ba7eb Aghany");
-        angham.add("Ganbk Makani");
-        angham.add("Ba2eet Wa7eda");
-        ArrayList<String> assala = new ArrayList<>();
-        assala.add("Ana Batkhan");
-        assala.add("Ased Aih");
-        assala.add("Hay Ollek");
-        assala.add("Kam Marra");
-        assala.add("Kefaya Kelma");
-        assala.add("Koll Amma Teftekroo");
-        assala.add("Meen Feena");
-        assala.add("Mohtamma Bel Tafaseel");
-        assala.add("Rejea El Farah");
-        assala.add("Sandoo Sgheer");
-        assala.add("Shou Bedak");
-        assala.add("Ya Aalem");
-        assala.add("Youm El Raheel");
-        ArrayList<String> hamaki = new ArrayList<>();
-        hamaki.add("Agmal Youm");
-        hamaki.add("Ma Balash");
-        hamaki.add("Mayni");
-        hamaki.add("Kanet Henak");
-        hamaki.add("Nesit");
-        hamaki.add("Saber Ala_Hali");
-        hamaki.add("Nesmet Shouq");
-        hamaki.add("Yally Za3lan");
-        hamaki.add("Ana Serraha");
-        hamaki.add("El Ghaly Nasiny");
-        hamaki.add("Kan We Kan");
-        hamaki.add("Omroh Ma Yeghib");
-        hamaki.add("Be3dna Leh");
-        hamaki.add("Enta Habibi");
-        hamaki.add("Elly Ekhtaroh Albi");
-        ArrayList<String> hamza = new ArrayList<>();
-        hamza.add("Dari Ya Alby");
-        hamza.add("El Wad El Abeet");
-        hamza.add("Hateer Min Tany");
-        hamza.add("Zahra");
-        hamza.add("Bos Bos");
-        hamza.add("Wala Sohba Ahla");
-        hamza.add("Shuwayyet Habayeb");
-        hamza.add("Sheekayyo");
-        hamza.add("Madadd");
-        ArrayList<String> ramy = new ArrayList<>();
-        ramy.add("2odamy");
-        ramy.add("7asl 5er");
-        ramy.add("B7bk Ya Blady");
-        ramy.add("Etfadl Emshy");
-        ramy.add("Fo2t Mt2a5r");
-        ramy.add("Getlk");
-        ramy.add("H5af Mn Eh");
-        ramy.add("Hatfr2 Eh");
-        ramy.add("Malesh Da3wa B7d");
-        ramy.add("Mfadsh Bya");
-        ramy.add("Msh Bmzagk");
-        ramy.add("Msh Kdab");
-        ramy.add("Nadele");
-        ramy.add("Y5alek Lya");
-        ArrayList<String> tamer = new ArrayList<>();
-        tamer.add("Law Ghaly Aleik");
-        tamer.add("Esht Maak Hekayat");
-        tamer.add("Ana Ragea");
-        tamer.add("Makamlnash");
-        tamer.add("Malish Hal");
-        tamer.add("Entaq");
-        tamer.add("Waqt El Wadaa");
-        tamer.add("Mesh Sahla.");
-        tamer.add("Get Ala Karamty");
-        tamer.add("Men Gherak");
-        if (store == 3) {
-            ArrayAdapter<String> hamzaAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, hamza);
-            playList.setAdapter(hamzaAdapter);
-        } else if (store == 2) {
-            ArrayAdapter<String> hamakiAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, hamaki);
-            playList.setAdapter(hamakiAdapter);
-        } else if (store == 1) {
-            ArrayAdapter<String> assalaAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, assala);
-            playList.setAdapter(assalaAdapter);
-        } else if (store == 0) {
-            ArrayAdapter<String> anghamAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, angham);
-            playList.setAdapter(anghamAdapter);
-        } else if (store == 5) {
-            ArrayAdapter<String> tamerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tamer);
-            playList.setAdapter(tamerAdapter);
-        } else if (store == 4) {
-            ArrayAdapter<String> ramyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ramy);
-            playList.setAdapter(ramyAdapter);
-        }
-        playList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position2, long id) {
-                Intent info = new Intent(SecondActivity.this, SongActivity.class);
-                info.putExtra("songName", playList.getItemAtPosition(position2).toString());
-                startActivity(info);
-            }
-        });
-        prev = findViewById(R.id.prev2);
-        next = findViewById(R.id.next2);
-        playAndpause = findViewById(R.id.playAndpause2);
-        playAndpause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
-        prev.setImageResource(R.drawable.ic_skip_previous_black_24dp);
-        next.setImageResource(R.drawable.ic_skip_next_black_24dp);
-        playAndpause.setOnClickListener(new View.OnClickListener() {
+        MainActivity child=new MainActivity();
+        playAndpause2 = findViewById(R.id.playAndpause2);
+        child.playandpause(playAndpause2);
+        homeRedirect = findViewById(R.id.home_redirect);
+        homeRedirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (swap) {
-                    playAndpause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
-                    swap = false;
-                } else {
-                    playAndpause.setImageResource(R.drawable.ic_pause_circle_filled_black_24dp);
-                    swap = true;
-                }
+                Intent intent2 = new Intent(SecondActivity.this,MainActivity.class);
+                startActivity(intent2);
             }
         });
-
+        DoAll();
     }
+public void DoAll(){
+    Bundle bundle = getIntent().getExtras();
+    assert bundle != null;
+    store = bundle.getInt("ArtistName");
+    ArrayList<Artist> angham = new ArrayList<>();
+    angham.add(new Artist("Ahe Gat","Angham",R.drawable.angham));
+    angham.add(new Artist("Etgah Wa7ed","Angham",R.drawable.angham));
+    angham.add(new Artist("Ben Elbnen","Angham",R.drawable.angham));
+    angham.add(new Artist("Tool Manta B3ed","Angham",R.drawable.angham));
+    angham.add(new Artist("Aktblk Ta3hod","Angham",R.drawable.angham));
+    angham.add(new Artist("Heta Na2sa","Angham",R.drawable.angham));
+    angham.add(new Artist("Ahlam Bare2a","Angham",R.drawable.angham));
+    angham.add(new Artist("Fengan Elnsyan","Angham",R.drawable.angham));
+    angham.add(new Artist("Bakrah Elmosika","Angham",R.drawable.angham));
+    angham.add(new Artist("Ba7eb Aghany","Angham",R.drawable.angham));
+    angham.add(new Artist("Ganbk Makani","Angham",R.drawable.angham));
+    angham.add(new Artist("Ba2eet Wa7eda","Angham",R.drawable.angham));
+    ArrayList<Artist> assala = new ArrayList<>();
+    assala.add(new Artist("Ana Batkhan","Assala",R.drawable.assala));
+    assala.add(new Artist("Ased Aih","Assala",R.drawable.assala));
+    assala.add(new Artist("Hay Ollek","Assala",R.drawable.assala));
+    assala.add(new Artist("Kam Marra","Assala",R.drawable.assala));
+    assala.add(new Artist("Kefaya Kelma","Assala",R.drawable.assala));
+    assala.add(new Artist("Koll Amma Teftekroo","Assala",R.drawable.assala));
+    assala.add(new Artist("Meen Feena","Assala",R.drawable.assala));
+    assala.add(new Artist("Mohtamma Bel Tafaseel","Assala",R.drawable.assala));
+    assala.add(new Artist("Rejea El Farah","Assala",R.drawable.assala));
+    assala.add(new Artist("Sandoo Sgheer","Assala",R.drawable.assala));
+    assala.add(new Artist("Shou Bedak","Assala",R.drawable.assala));
+    assala.add(new Artist("Ya Aalem","Assala",R.drawable.assala));
+    assala.add(new Artist("Youm El Raheel","Assala",R.drawable.assala));
+    ArrayList<Artist> hamaki = new ArrayList<>();
+    hamaki.add(new Artist("Agmal Youm","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Ma Balash","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Mayni","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Kanet Henak","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Nesit","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Saber Ala_Hali","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Nesmet Shouq","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Yally Za3lan","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Ana Serraha","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("El Ghaly Nasiny","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Kan We Kan","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Omroh Ma Yeghib","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Be3dna Leh","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Enta Habibi","Mohamed Hamaki",R.drawable.hamaki));
+    hamaki.add(new Artist("Elly Ekhtaroh Albi","Mohamed Hamaki",R.drawable.hamaki));
+    ArrayList<Artist> hamza = new ArrayList<>();
+    hamza.add(new Artist("Dari Ya Alby","Hamza Namira",R.drawable.hamza));
+    hamza.add(new Artist("El Wad El Abeet","Hamza Namira",R.drawable.hamza));
+    hamza.add(new Artist("Hateer Min Tany","Hamza Namira",R.drawable.hamza));
+    hamza.add(new Artist("Zahra","Hamza Namira",R.drawable.hamza));
+    hamza.add(new Artist("Bos Bos","Hamza Namira",R.drawable.hamza));
+    hamza.add(new Artist("Wala Sohba Ahla","Hamza Namira",R.drawable.hamza));
+    hamza.add(new Artist("Shuwayyet Habayeb","Hamza Namira",R.drawable.hamza));
+    hamza.add(new Artist("Sheekayyo","Hamza Namira",R.drawable.hamza));
+    hamza.add(new Artist("Madadd","Hamza Namira",R.drawable.hamza));
+    hamza.add(new Artist("Dari Ya Alby","Hamza Namira",R.drawable.hamza));
+    ArrayList<Artist> ramy = new ArrayList<>();
+    ramy.add(new Artist("2odamy","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("7asl 5er","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("B7bk Ya Blady","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("Etfadl Emshy","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("Fo2t Mt2a5r","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("Getlk","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("H5af Mn Eh","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("Hatfr2 Eh","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("Malesh Da3wa B7d","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("Mfadsh Bya","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("Msh Bmzagk","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("Msh Kdab","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("Nadele","Ramy Gamal",R.drawable.ramy));
+    ramy.add(new Artist("Y5alek Lya","Ramy Gamal",R.drawable.ramy));
+    ArrayList<Artist> tamer = new ArrayList<>();
+    tamer.add(new Artist("Law Ghaly Aleik","Tamer Ashour",R.drawable.tamer) );
+    tamer.add(new Artist("Esht Maak Hekayat","Tamer Ashour",R.drawable.tamer) );
+    tamer.add(new Artist("Ana Ragea","Tamer Ashour",R.drawable.tamer) );
+    tamer.add(new Artist("Makamlnash","Tamer Ashour",R.drawable.tamer) );
+    tamer.add(new Artist("Malish Hal","Tamer Ashour",R.drawable.tamer) );
+    tamer.add(new Artist("Entaq","Tamer Ashour",R.drawable.tamer) );
+    tamer.add(new Artist("Waqt El Wadaa","Tamer Ashour",R.drawable.tamer) );
+    tamer.add(new Artist("Mesh Sahla","Tamer Ashour",R.drawable.tamer) );
+    tamer.add(new Artist("Get Ala Karamty","Tamer Ashour",R.drawable.tamer) );
+    tamer.add(new Artist("Men Gherak","Tamer Ashour",R.drawable.tamer) );
 
+    if (store == 3) {
+        ArtistAdapter hamzaAdapter = new ArtistAdapter(this,hamza);
+        playList.setAdapter(hamzaAdapter);
+    } else if (store == 2) {
+        ArtistAdapter hamakiAdapter = new ArtistAdapter(this,hamaki);
+        playList.setAdapter(hamakiAdapter);
+    } else if (store == 1) {
+        ArtistAdapter assalaAdapter = new ArtistAdapter(this, assala);
+        playList.setAdapter(assalaAdapter);
+    } else if (store == 0) {
+        ArtistAdapter anghamAdapter = new ArtistAdapter(this, angham);
+        playList.setAdapter(anghamAdapter);
+    } else if (store == 5) {
+        ArtistAdapter tamerAdapter = new ArtistAdapter(this, tamer);
+        playList.setAdapter(tamerAdapter);
+    } else if (store == 4) {
+        ArtistAdapter ramyAdapter = new ArtistAdapter(this, ramy);
+        playList.setAdapter(ramyAdapter);
+    }
+    playList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position2, long id) {
+            Intent info = new Intent(SecondActivity.this, SongActivity.class);
+            startActivity(info);
+        }
+    });
+}
 }

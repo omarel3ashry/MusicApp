@@ -4,6 +4,11 @@
     <dimen name="songs_padding">10dp</dimen>
     <dimen name="shapes_h">100dp</dimen>
     <dimen name="txt_s">30sp</dimen>
+    <dimen name="playpause">300dp</dimen>
+    <dimen name="art">230dp</dimen>
+    <dimen name="btn">35dp</dimen>
+    <dimen name="btn_margin">3dp</dimen>
     <dimen name="small_shapes_h">70dp</dimen>
-    <dimen name="list_view_h">480dp</dimen>
+    <dimen name="list_view_h">330dp</dimen>
+    <dimen name="artist_pic">60dp</dimen>
 </resources>

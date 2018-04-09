@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 
-public class ArtistAdapter extends ArrayAdapter {
-    public ArtistAdapter(@NonNull Context context, ArrayList<Artist> module) {
+public class SongsListAdapter extends ArrayAdapter {
+    public SongsListAdapter(@NonNull Context context, ArrayList<Artist> module) {
         super(context,0, module);
     }
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
