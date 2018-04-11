@@ -40,8 +40,8 @@ public class SecondActivity extends AppCompatActivity {
     }
 public void DoAll(){
     Bundle bundle = getIntent().getExtras();
-    assert bundle != null;
-    store = bundle.getInt("ArtistName");
+    if(bundle != null) {
+    store = bundle.getInt("ArtistName");}
     ArrayList<Artist> angham = new ArrayList<>();
     angham.add(new Artist("Ahe Gat","Angham",R.drawable.angham));
     angham.add(new Artist("Etgah Wa7ed","Angham",R.drawable.angham));
