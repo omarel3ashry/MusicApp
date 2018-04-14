@@ -4,20 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<Button
-    android:layout_width="@dimen/btn"
-    android:layout_height="@dimen/btn"
-    android:layout_margin="@dimen/btn_margin"
-    android:background="@drawable/home"
-    android:id="@+id/home_redirect"/>
+
+
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/list2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/list_view_h"
         android:padding="@dimen/songs_padding"
-        tools:context="com.example.android.musicapp.SecondActivity"
-        />
+        tools:context="com.example.android.musicapp.SecondActivity" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,26 +23,27 @@
             android:id="@+id/prev2"
             android:layout_width="@dimen/small_shapes_h"
             android:layout_height="@dimen/small_shapes_h"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@drawable/prev"
             android:contentDescription="@string/prevsong"
-            />
+            android:src="@drawable/prev" />
 
         <ImageView
             android:id="@+id/playAndpause2"
             android:layout_width="@dimen/small_shapes_h"
-            android:layout_height="@dimen/small_shapes_h"
-            android:src="@drawable/play"
+            android:layout_height="@dimen/shapes_h"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:contentDescription="@string/stop_and_play"
-            />
+            android:src="@drawable/play" />
 
         <ImageView
             android:id="@+id/next2"
             android:layout_width="@dimen/small_shapes_h"
             android:layout_height="@dimen/small_shapes_h"
-            android:src="@drawable/next"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:contentDescription="@string/nextsong" />
+            android:contentDescription="@string/nextsong"
+            android:src="@drawable/next" />
     </LinearLayout>
 </LinearLayout>

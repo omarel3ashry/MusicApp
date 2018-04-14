@@ -9,20 +9,12 @@ import android.widget.ImageView;
 
 public class SongActivity extends AppCompatActivity {
     ImageView playAndpause3;
-    Button redirectBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song);
-        redirectBtn = findViewById(R.id.redirect);
-        redirectBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent list=new Intent(SongActivity.this,SecondActivity.class);
-                startActivity(list);
-            }
-        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         playAndpause3 = findViewById(R.id.playAndpause3);
         MainActivity child2=new MainActivity();

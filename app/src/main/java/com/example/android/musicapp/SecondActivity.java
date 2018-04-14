@@ -2,6 +2,7 @@ package com.example.android.musicapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,26 +17,19 @@ public class SecondActivity extends AppCompatActivity {
     TextView artistName;
     ListView playList;
     ImageView playAndpause2;
-    Button homeRedirect;
     int store;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         artistName = findViewById(R.id.artistName);
         playList = findViewById(R.id.list2);
         MainActivity child=new MainActivity();
         playAndpause2 = findViewById(R.id.playAndpause2);
         child.playandpause(playAndpause2);
-        homeRedirect = findViewById(R.id.home_redirect);
-        homeRedirect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent2 = new Intent(SecondActivity.this,MainActivity.class);
-                startActivity(intent2);
-            }
-        });
+
         DoAll();
     }
 public void DoAll(){

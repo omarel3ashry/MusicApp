@@ -17,9 +17,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity"
-            android:label="Songs List"/>
+            android:label="Songs List"
+            android:parentActivityName=".MainActivity"/>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.android.musicapp.MainActivity"/>
         <activity android:name=".SongActivity"
-            android:label="Playing Now"/>
+            android:label="Playing Now"
+            android:parentActivityName=".SecondActivity"/>
     </application>
 
 
